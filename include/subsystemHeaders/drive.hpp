@@ -1,7 +1,10 @@
 #include "main.h"
 
 //HELPER FUNCTION (DECLARATION)
-void setDriveMotor(int left, int right);
+void leftDriveMotor(int i);
+void rightDriveMotor(int i);
+void setDriveMotor(int power, int turn);
+
 void resetDriveEncoders();
 double getAveragePosition();
 

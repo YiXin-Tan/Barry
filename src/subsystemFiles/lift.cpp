@@ -1,14 +1,19 @@
 #include "main.h"
 
 //HELPER FUNCTION
-void setLiftMotor(int power){
-  lift = power;
+void setLiftMotor(int distance){
+  lift.move_relative(distance, 100); //distance either 100 or -100
 }
 
 //CONTROL FUNCTION
 void controlSetLift(){
-  int p = 127 * (master.get_digital(DIGITAL_L1) - master.get_digital(DIGITAL_L2));
-  setLiftMotor(p);
+  //lift up / down toggle stitch: L1
+  if (master.get_digital_new_press(DIGITAL_L1)){
+    lift_state = !lift_state;
+    setLiftMotor(lift_state * 100);
+  }
+  //int p = 127 * (master.get_digital(DIGITAL_L1) - master.get_digital(DIGITAL_L2));
+  //setLiftMotor(p);
 }
 
 //AUTONOMOUS FUNCTION

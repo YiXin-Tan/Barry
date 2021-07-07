@@ -1,9 +1,10 @@
 #include "main.h"
 
 //HELPER FUNCTION (DECLARATION)
-void setLiftMotor(int power);
+void setLiftMotor(int distance);
 
 //CONTROL FUNCTION (DECLARATION)
+int lift_state = -1; //lift down: -1
 void controlSetLift();
 
 //AUTONOMOUS FUNCTIONS (DECLARATION)
